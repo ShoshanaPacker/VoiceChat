@@ -44,43 +44,6 @@ const ChatApp = () => {
     console.log("Stopping recording");
     stopRecording();
   };
-
-// const handleSend = async () => {
-//   if (!audioBlob) return;
-
-//   // הוספת ההודעה של המשתמש לצ'אט
-//   setChat((prev) => [...prev, { sender: "user", text: "Sending audio..." }]);
-//   setLoading(true);
-
-//   // נגן את הקובץ בקול לפני שליחה
-//   const audioUrl = URL.createObjectURL(audioBlob);
-//   const audio = new Audio(audioUrl);
-//   audio.play();
-
-//   try {
-//     const formData = new FormData();
-//     formData.append("audio", audioBlob, "audio.wav");
-
-//     const response = await fetch("http://127.0.0.1:5000/voice", {
-//       method: "POST",
-//       body: formData,
-//     });
-
-//     if (response.ok) {
-//       const blob = await response.blob();
-//       const responseAudioUrl = URL.createObjectURL(blob);
-//       const responseAudio = new Audio(responseAudioUrl);
-//       responseAudio.play();
-//       setChat((prev) => [...prev, { sender: "bot", text: "Response played successfully" }]);
-//     } else {
-//       setChat((prev) => [...prev, { sender: "bot", text: "Server error" }]);
-//     }
-//   } catch (error) {
-//     setChat((prev) => [...prev, { sender: "bot", text: "Error in communication" }]);
-//   }
-
-//   setLoading(false);
-// };
 const handleSend = async () => {
   if (!audioBlob) return;
 
